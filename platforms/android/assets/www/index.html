@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body bgcolor="lightblue">
+
+<form action="List.html">
+	<center><h1><font style="font-family: 'Calibri';font-size: 60px">Schedule It</font></h1></center>
+
+	<center>
+	<form>
+	<label for="title" style="font-size: 30px; font-family: 'Calibri';font-weight: bold;/*margin-left: 100px">Title: </label>
+	<input type="text" id="title" placeholder="title here" style="height: 30px; width: 300px; font-size: 20px; text-align: center"/><br><br>
+
+	<label for="task" style="font-size:30px; font-family: 'Calibri';font-weight: bold;/*margin-left: 100px">Task: </label>
+	<input type="text" id="task" placeholder="task here" style="height: 30px; width: 300px; font-size: 20px; text-align: center" /><br><br><br><br><br>
+
+	<label for="date" style="font-size: 30px; font-family: 'Calibri';font-weight: bold;/*margin-left: 100px">Date: </label>
+	<input type="text" id="date" placeholder="date here" style="height: 30px; width: 300px; font-size: 20px; text-align: center" /><br><br><br>		
+
+	<label for="start" style="font-size: 30px; font-family: 'Calibri';font-weight: bold;margin-left: 10px">Start</label>
+
+	<label for="end" style="font-size: 30px; font-family: 'Calibri';font-weight: bold;margin-left: 200px">End</label><br>
+	
+
+	<input type="time" id="start" style="height: 30px; width: 100px; font-size: 15px; text-align: center;margin-left: 0px; text-align: center" />
+	<input type="time" id="end" style="height: 30px; width: 100px; font-size: 15px; text-align: center; margin-left: 145px;text-align: center" /><br>
+
+	<button id="btnStore" style="height: 50px; width: 100px; font-size: 25px; margin:  100px; background-color: green; font-weight: bold;font-family: 'Calibri'">Save</button>
+	<button id="cancel" onclick="clear(all)" style="height: 50px; width: 100px; font-size: 25px; margin: 100px;background-color: red; font-weight: bold; font-family: 'Calibri'">Cancel</button>
+	</form>
+	
+
+<script>
+ window.onload=function()
+{
+	 document.getElementById("btnStore").addEventListener('click', saveData, false);
+	 document.getElementById("btnStore").addEventListener('click', loadData, false);
+}
+
+	function saveData()
+	{
+		var title=document.getElementById('title').value;
+		var task=document.getElementById('task').value;
+		var date=document.getElementById('date').value;
+		var start=document.getElementById('start').value;
+		var end=document.getElementById('end').value;
+
+		localStorage.setItem('title', title);
+		localStorage.setItem('task', task);
+		localStorage.setItem('date', date);
+		localStorage.setItem('start', start);
+		localStorage.setItem('end', end);
+	}
+	function loadData()
+	{
+		var title= localStorage.getItem('title');
+		var task= localStorage.getItem('task');
+		var date= localStorage.getItem('date');
+		var start= localStorage.getItem('start');
+		var end= localStorage.getItem('end');
+	}
+
+</script>
+</center>
+</body>
+</html>
